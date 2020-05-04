@@ -61,11 +61,12 @@ public class Doctor {
 	 con.close();
 	 
 	 
-	 output = "Inserted successfully";
+	 String newDoctor = readDoctor();
+	 output = "{\"status\":\"success\", \"data\": \"" +newDoctor + "\"}"; 
 	 }
 	catch (Exception e)
 	 {
-	 output = "Error while inserting";
+		output = "{\"status\":\"error\", \"data\": \"Error while inserting the Doctor.\"}"; 
 	 System.err.println(e.getMessage());
 	 }
 	return output;
@@ -87,8 +88,7 @@ public class Doctor {
 	 return "Error while connecting to the database for reading.";
 	 }
 	 // Prepare the html table to be displayed
-	 output = "<table border=\"1\"><tr><th>ID</th>"
-			 		+"<th>Name</th><th>Tel</th>"
+	 output = "<table border='1'><tr><th>ID</th><th>Name</th><th>Tel</th>"
 			 		+ "<th>Specialization</th>"
 			 		+ "<th>Hospital</th>"
 			 		+ "<th>Email</th>"
@@ -113,7 +113,7 @@ public class Doctor {
 	 // Add into the html table
 	 
 	 output += "<tr><td>"
-	 		+ "<input id=\"hidDoIDUpdate\" name=\"hidDoIDUpdate\" type=\"hidden\" value=\"" + DoId + "\">"+ DoId + "</td>";	
+	 		+ "<input id='hidDoIDUpdate' name='hidDoIDUpdate'type='hidden' value='" + DoId + "'>"+ DoId + "</td>";	
 
 	 output += "<td>" + DoName + "</td>"; 
 	 
@@ -122,12 +122,10 @@ public class Doctor {
 	 output += "<td>" + DoHospital + "</td>";
 	 output += "<td>" + DoEmail + "</td>";
 	 output += "<td>" + Dopassword + "</td>";
-	 // buttons
 	// buttons
-	 output += "<td><input name=\"btnUpdate\"type=\"button\" value=\"Update\"class=\" btnUpdate btn btn-secondary\"></td>"
-	 		+ "	<td><form method=\"post\" action=\"DoctorAdmin.jsp\"><input name=\"btnRemove\" type=\"submit\"value=\"Remove\" class=\"btn btn-danger\">"
-	 		+ "<input name=\"hidDoIDDelete\" type=\"hidden\" value=\"" + DoId + "\">" + "</form>"
-	 				+ "</td></tr>"; 
+	 output += "<td><input name='btnUpdate' type='button'value='Update'class='btnUpdate btn btn-secondary'></td>"
+	 		+ "<td><input name='btnRemove' type='button'value='Remove'class='btnRemove btn btn-danger' data-doid='" + DoId + "'>" 
+			 + "</td></tr>"; 
 	 }
 	 con.close();
 	 // Complete the html table
@@ -143,7 +141,7 @@ public class Doctor {
 	
 	
 	
-	public String deleteDoctor(String DoctorID)
+	public String deleteDoctor(String DoId)
 	{
 	 String output = "";
 	try
@@ -157,16 +155,17 @@ public class Doctor {
 	 String query = "delete from doctor where id=?";
 	 PreparedStatement preparedStmt = con.prepareStatement(query);
 	 // binding values
-	 preparedStmt.setInt(1, Integer.parseInt(DoctorID));
+	 preparedStmt.setInt(1, Integer.parseInt(DoId));
 
 	 // execute the statement
 	 preparedStmt.execute();
 	 con.close();
-	 output = "Deleted successfully";
+	 String newDoctor = readDoctor();
+	 output = "{\"status\":\"success\", \"data\": \"" +newDoctor + "\"}"; 
 	 }
 	catch (Exception e)
 	 {
-	 output = "Error while deleting the Doctor.";
+		output = "{\"status\":\"error\", \"data\":\"Error while deleting the Doctor acccount....\"}"; 
 	 System.err.println(e.getMessage());
 	 }
 	return output;
@@ -197,11 +196,12 @@ public class Doctor {
 	 // execute the statement
 	 preparedStmt.execute();
 	 con.close();
-	 output = "Updated successfully";
+	 String newDoctor = readDoctor();
+	 output = "{\"status\":\"success\", \"data\": \"" +newDoctor + "\"}"; 
 	 }
 	 catch (Exception e)
 	 {
-	 output = "Error while updating the item.";
+		 output = "{\"status\":\"error\", \"data\": \"Error while updating the Doctor.\"}"; 
 	 System.err.println(e.getMessage());
 	 }
 	 return output;

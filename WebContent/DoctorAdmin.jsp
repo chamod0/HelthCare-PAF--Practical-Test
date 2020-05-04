@@ -1,7 +1,7 @@
 <%@ page import="com.Doctor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
-<%
+<%/*
  //Insert Doctor----------------------------------
 if (request.getParameter("name") != null){
 	
@@ -44,7 +44,7 @@ if (request.getParameter("hidDoIDDelete") != null)
 	Doctor DoctorObj = new Doctor();
 String stsMsg =DoctorObj.deleteDoctor(request.getParameter("hidDoIDDelete"));
 session.setAttribute("statusMsg", stsMsg);
-}
+} */
 
 %>
 
@@ -52,7 +52,7 @@ session.setAttribute("statusMsg", stsMsg);
 <html>
 <head>
 
-<meta charset="utf-8">
+<meta charset="ISO-8859-1">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Doctor Management</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -61,8 +61,12 @@ session.setAttribute("statusMsg", stsMsg);
 <script src="Componets/doctor.js"></script>
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+
 <h1>Doctor Management</h1>
-<form id="formItem" name="formItem" method="post"  action="DoctorAdmin.jsp">
+<form id="DoctorForm" name="DoctorForm" method="post"  action="DoctorAdmin.jsp">
  						<input id ="id" name="id" type="text" class="form-control form-control-sm" ><br>
  		Name: 			<input id ="name" name="name" type="text" class="form-control form-control-sm" ><br>
  		Tel: 			<input id = "Tel"  name="Tel" type="text" class="form-control form-control-sm"><br>
@@ -73,15 +77,19 @@ session.setAttribute("statusMsg", stsMsg);
 						<input id="btnSave" name="btnSave" type="button" value="Save"class="btn btn-primary">
 						 <input type="hidden" id="hidDoctorIDSave" name="hidDoctorIDSave" value="">
 </form>
-<div id="alertSuccess" class="alert alert-success">
-				<% out.print(session.getAttribute("statusMsg")); %>
-</div>
- <div id="alertError" class="alert alert-danger"></div>
+<div id="alertSuccess" class="alert alert-success"></div>
+<div id="alertError" class="alert alert-danger"></div>
 
 <br>
+<div id="divDoGrid">
+
 <%
-Doctor DoctorObj = new Doctor();
- out.print(DoctorObj.readDoctor());
+	Doctor DoctorObj = new Doctor();
+	 out.print(DoctorObj.readDoctor());
 %>
+	</div>
+		</div>
+	 </div>
+</div>
 </body>
 </html>
