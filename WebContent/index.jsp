@@ -18,8 +18,12 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-        <div class="container"><a class="navbar-brand" href="#">HelthCare Online Hospital Management System</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"></div>
+        <div class="container"><a class="navbar-brand" href="#">HelthCare Online Hospital Management System</a>
+        
+        
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"> </div>
+            <a class="btn btn-primary ml-auto" role="button" href="AdminLogin.jsp">Sign In</a>
         </div>
     </nav>
     <header data-bs-parallax-bg="true" class="masthead text-white text-center" style="background: url('assets/img/Artificial-Intelligence-Will-Trigger-Major-Shifts-in-Value-Pools-Across-the-Health-Care-Industry.jpg?h=df0ac41e630226b1662257ec1757d57a')no-repeat center center;background-size: cover;background-image: url(assets/img/1_pnTdoWVKI00wvjkUJnor0Q.jpeg?h=4464b60752de1a345a32aa5dbce05ebf);background-position: center;">
@@ -45,7 +49,7 @@
                 <div class="col-lg-4" data-aos="fade-down" style="background-color: #ffffff;">
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><i class="fas fa-user-nurse m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
-                        <h3>DOCTOR</h3><a class="btn btn-primary ml-auto" role="button" href="#">Sign In</a>
+                        <h3>DOCTOR</h3><a class="btn btn-primary ml-auto" role="button" href="DoctorLogin.jsp">Sign In</a>
                         <p class="lead mb-0">Doctor's Login</p>
                     </div>
                 </div>

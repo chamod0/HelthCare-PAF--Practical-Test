@@ -51,6 +51,15 @@ public class DoctorAPI extends HttpServlet {
 				response.getWriter().write(output); 
 				
 				
+		//admin login
+				
+				String username = request.getParameter("username");
+				String password = request.getParameter("password");
+				if (username.equals("admin")&& password.equals("admin")) {
+					response.sendRedirect("DoctorAdmin.jsp");
+				}else {
+					response.sendRedirect("AdminLogin.jsp");
+				}
 	}
 
 	/**

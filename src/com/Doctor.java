@@ -88,7 +88,7 @@ public class Doctor {
 	 return "Error while connecting to the database for reading.";
 	 }
 	 // Prepare the html table to be displayed
-	 output = "<table border='1'><tr><th>ID</th><th>Name</th><th>Tel</th>"
+	 output = "<table class='table' border='1'><tr class='thead-dark'><th>ID</th><th>Name</th><th>Tel</th>"
 			 		+ "<th>Specialization</th>"
 			 		+ "<th>Hospital</th>"
 			 		+ "<th>Email</th>"
@@ -123,7 +123,7 @@ public class Doctor {
 	 output += "<td>" + DoEmail + "</td>";
 	 output += "<td>" + Dopassword + "</td>";
 	// buttons
-	 output += "<td><input name='btnUpdate' type='button'value='Update'class='btnUpdate btn btn-secondary'></td>"
+	 output += "<td><input name='btnUpdate' type='button'value='Update'class='btnUpdate btn btn-success'></td>"
 	 		+ "<td><input name='btnRemove' type='button'value='Remove'class='btnRemove btn btn-danger' data-doid='" + DoId + "'>" 
 			 + "</td></tr>"; 
 	 }

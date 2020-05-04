@@ -55,19 +55,27 @@ session.setAttribute("statusMsg", stsMsg);
 <meta charset="ISO-8859-1">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Doctor Management</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/script.min.js"></script>
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <script src="assets/js/script.min.js"></script>
 <script src="Componets/jquery-3.5.0.min.js"></script>
 <script src="Componets/doctor.js"></script>
 </head>
 <body>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="AdminPanel.jsp">Admin panel</a></li>
+    <li class="breadcrumb-item">Doctor management</li>
+    
+  </ol>
+</nav>
 <div class="container">
 	<div class="row">
 		<div class="col-6">
 
-<h1>Doctor Management</h1>
-<form id="DoctorForm" name="DoctorForm" method="post"  action="DoctorAdmin.jsp">
- 						<input id ="id" name="id" type="text" class="form-control form-control-sm" ><br>
+		<h1>Doctor Management</h1>
+		<div class="form-group">
+		<form id="DoctorForm" name="DoctorForm" method="post"  action="DoctorAdmin.jsp">
+ 						<input id ="id" name="id" type="text" class="form-control form-control-sm" disabled ><br>
  		Name: 			<input id ="name" name="name" type="text" class="form-control form-control-sm" ><br>
  		Tel: 			<input id = "Tel"  name="Tel" type="text" class="form-control form-control-sm"><br>
 		Specialization:	<input id="Specialization" name="Specialization" type="text" class="form-control form-control-sm"><br>
@@ -77,6 +85,8 @@ session.setAttribute("statusMsg", stsMsg);
 						<input id="btnSave" name="btnSave" type="button" value="Save"class="btn btn-primary">
 						 <input type="hidden" id="hidDoctorIDSave" name="hidDoctorIDSave" value="">
 </form>
+
+</div>
 <div id="alertSuccess" class="alert alert-success"></div>
 <div id="alertError" class="alert alert-danger"></div>
 
