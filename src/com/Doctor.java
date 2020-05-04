@@ -111,22 +111,23 @@ public class Doctor {
 
 	 
 	 // Add into the html table
-	 output += "<tr><td>" + DoId + "</td>";
+	 
+	 output += "<tr><td>"
+	 		+ "<input id=\"hidDoIDUpdate\" name=\"hidDoIDUpdate\" type=\"hidden\" value=\"" + DoId + "\">"+ DoId + "</td>";	
+
 	 output += "<td>" + DoName + "</td>"; 
-	
+	 
 	output += "<td>" + DoTel + "</td>";
 	 output += "<td>" + DoSpecialization + "</td>";
 	 output += "<td>" + DoHospital + "</td>";
 	 output += "<td>" + DoEmail + "</td>";
 	 output += "<td>" + Dopassword + "</td>";
 	 // buttons
-	 output += "<td><input name=\"btnUpdate\" "
-	 + " type=\"button\" value=\"Update\"></td>"
-	 + "<td><form method=\"post\" action=\"DoctorAdmin.jsp\">"
-	 + "<input name=\"btnRemove\" "
-	 + " type=\"submit\" value=\"Remove\" class=\"btn btndanger\">"
-	 + "<input name=\"DoctorID\" type=\"hidden\" "
-	 + " value=\"" + DoId + "\">" + "</form></td></tr>";
+	// buttons
+	 output += "<td><input name=\"btnUpdate\"type=\"button\" value=\"Update\"class=\" btnUpdate btn btn-secondary\"></td>"
+	 		+ "	<td><form method=\"post\" action=\"DoctorAdmin.jsp\"><input name=\"btnRemove\" type=\"submit\"value=\"Remove\" class=\"btn btn-danger\">"
+	 		+ "<input name=\"hidDoIDDelete\" type=\"hidden\" value=\"" + DoId + "\">" + "</form>"
+	 				+ "</td></tr>"; 
 	 }
 	 con.close();
 	 // Complete the html table
@@ -171,6 +172,41 @@ public class Doctor {
 	return output;
 	}
 
+	//Update Doctor
+	public String updateDoctor(String ID,String name, String Tel, String Specialization, String Hospital,String Email,String password)
+	 {
+	 String output = "";
+	 try
+	 {
+	 Connection con = connect();
+	 if (con == null)
+	 {return "Error while connecting to the database for updating."; }
+	 // create a prepared statement
+	 String query = "UPDATE doctor SET name=?,Tel=?,Specialization=?,Hospital=?,Email=?,password=? WHERE id=?";
+	 PreparedStatement preparedStmt = con.prepareStatement(query);
+	 // binding values
+	 preparedStmt.setString(1, name);
+	 preparedStmt.setInt(2, Integer.parseInt(Tel));
+	 preparedStmt.setString(3, Specialization); 
+	 preparedStmt.setString(4, Hospital); 
+	 preparedStmt.setString(5, Email); 
+	 preparedStmt.setString(6, password); 
+	 preparedStmt.setInt(7, Integer.parseInt(ID));
+	 
 
+	 // execute the statement
+	 preparedStmt.execute();
+	 con.close();
+	 output = "Updated successfully";
+	 }
+	 catch (Exception e)
+	 {
+	 output = "Error while updating the item.";
+	 System.err.println(e.getMessage());
+	 }
+	 return output;
+	 }
+
+	
 
 }

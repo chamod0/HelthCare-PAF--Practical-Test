@@ -3,27 +3,49 @@
 pageEncoding="ISO-8859-1"%>
 <%
  //Insert Doctor----------------------------------
-if (request.getParameter("name") != null)
- {
+if (request.getParameter("name") != null){
+	
 	Doctor DoctorObj = new Doctor();
- String stsMsg = DoctorObj.insertDoctor(request.getParameter("name"),
-			request.getParameter("Tel"),
-			request.getParameter("Specialization"),
-			request.getParameter("Hospital"),
-			request.getParameter("Email"),
-			request.getParameter("password"));
+	String stsMsg ="";
+	
+	
+	
+	if (request.getParameter("hidDoctorIDSave") == "") {
+		
+		 stsMsg = DoctorObj.insertDoctor(request.getParameter("name"),
+					request.getParameter("Tel"),
+					request.getParameter("Specialization"),
+					request.getParameter("Hospital"),
+					request.getParameter("Email"),
+					request.getParameter("password"));
+		 
+	}else{
+		
+		 stsMsg = DoctorObj.updateDoctor(request.getParameter("hidDoctorIDSave"),
+				 	request.getParameter("name"),
+					request.getParameter("Tel"),
+					request.getParameter("Specialization"),
+					request.getParameter("Hospital"),
+					request.getParameter("Email"),
+					request.getParameter("password"));
+		
+		
+	}
+	
+	
  
  
  session.setAttribute("statusMsg", stsMsg);
  
  }
-//Delete Doctor----------------------------------
-if (request.getParameter("DoctorID") != null)
+//Delete-----------------------------
+if (request.getParameter("hidDoIDDelete") != null)
 {
 	Doctor DoctorObj = new Doctor();
-	String stsMsg = DoctorObj.deleteDoctor(request.getParameter("DoctorID"));
+String stsMsg =DoctorObj.deleteDoctor(request.getParameter("hidDoIDDelete"));
 session.setAttribute("statusMsg", stsMsg);
 }
+
 %>
 
 <!DOCTYPE html>
@@ -35,24 +57,27 @@ session.setAttribute("statusMsg", stsMsg);
 <title>Doctor Management</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/script.min.js"></script>
-
+<script src="Componets/jquery-3.5.0.min.js"></script>
+<script src="Componets/doctor.js"></script>
 </head>
 <body>
 <h1>Doctor Management</h1>
-<form method="post" action="DoctorAdmin.jsp">
- 
- 		name: <input name="name" type="text"><br>
- 		Tel: <input name="Tel" type="text"><br>
-		Specialization:<input name="Specialization" type="text"><br>
-		Hospital: <input name="Hospital" type="text"><br>
-		Email: <input name="Email" type="text"><br> 
-		password: <input name="password" type="text"><br>  
-		
-		 <input name="btnSubmit" type="submit" value="Save" class="btn btn-primary">
+<form id="formItem" name="formItem" method="post"  action="DoctorAdmin.jsp">
+ 						<input id ="id" name="id" type="text" class="form-control form-control-sm" ><br>
+ 		Name: 			<input id ="name" name="name" type="text" class="form-control form-control-sm" ><br>
+ 		Tel: 			<input id = "Tel"  name="Tel" type="text" class="form-control form-control-sm"><br>
+		Specialization:	<input id="Specialization" name="Specialization" type="text" class="form-control form-control-sm"><br>
+		Hospital: 		<input id = "Hospital" name="Hospital" type="text" class="form-control form-control-sm"><br>
+		Email: 			<input id = "Email" name="Email" type="text" class="form-control form-control-sm"><br> 
+		password: 		<input id="password" name="password" type="text" class="form-control form-control-sm"><br>  
+						<input id="btnSave" name="btnSave" type="button" value="Save"class="btn btn-primary">
+						 <input type="hidden" id="hidDoctorIDSave" name="hidDoctorIDSave" value="">
 </form>
-<div class="alert alert-success">
- <% out.print(session.getAttribute("statusMsg"));%>
+<div id="alertSuccess" class="alert alert-success">
+				<% out.print(session.getAttribute("statusMsg")); %>
 </div>
+ <div id="alertError" class="alert alert-danger"></div>
+
 <br>
 <%
 Doctor DoctorObj = new Doctor();
