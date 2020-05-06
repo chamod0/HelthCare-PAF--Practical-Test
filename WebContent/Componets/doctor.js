@@ -82,19 +82,19 @@ $(document).on("click", ".btnUpdate", function(event)
 
 //remove
 $(document).on("click", ".btnRemove", function(event)
-		{
-		 $.ajax(
-		 {
-		 url : "DoctorAPI",
-		 type : "DELETE",
-		 data : "DoId=" + $(this).data("doid"),
-		 dataType : "text",
-		 complete : function(response, status)
-		 {
+{
+	$.ajax(
+	{
+		url : "DoctorAPI",
+		type : "DELETE",
+		data : "DoId=" + $(this).data("doid"),
+		dataType : "text",
+		complete : function(response, status)
+	 {
 		 onDoctorDeleteComplete(response.responseText, status);
 		 }
-		 });
-	});
+	 });
+});
 function onDoctorDeleteComplete(response, status)
 {
 if (status == "success"){

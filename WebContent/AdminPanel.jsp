@@ -16,6 +16,24 @@
 <title>Admin Panel</title>
 </head>
 <body>
+
+
+<% 
+response.setHeader("Cache-Control", "no-cache, no-store,must-revalidate");
+if(session.getAttribute("username")== null){
+	
+	
+	response.sendRedirect("AdminLogin.jsp");
+} %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="AdminPanel.jsp">Admin panel</a></li>
+
+     <li class="breadcrumb-item" align="right" ><a align="right"  href="logout.jsp">logout</a></li>
+    
+    
+  </ol>
+</nav>
 <h1 align="center"  style="padding: 132px;">Admin  Panel</h1>
 
 <div class="container">

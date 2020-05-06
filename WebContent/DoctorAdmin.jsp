@@ -56,15 +56,24 @@ session.setAttribute("statusMsg", stsMsg);
  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Doctor Management</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <script src="assets/js/script.min.js"></script>
+ <script src="assets/js/script.min.js"></script>
 <script src="Componets/jquery-3.5.0.min.js"></script>
 <script src="Componets/doctor.js"></script>
 </head>
 <body>
-<nav aria-label="breadcrumb">
+	<%
+		response.setHeader("Cache-Control", "no-cache, no-store,must-revalidate");
+		if (session.getAttribute("username") == null) {
+
+			response.sendRedirect("AdminLogin.jsp");
+		}
+	%>
+	<nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="AdminPanel.jsp">Admin panel</a></li>
     <li class="breadcrumb-item">Doctor management</li>
+     <li class="breadcrumb-item" aling = "right"><a href="logout.jsp">Logout</a></li>
+    
     
   </ol>
 </nav>
@@ -73,16 +82,26 @@ session.setAttribute("statusMsg", stsMsg);
 		<div class="col-6">
 
 		<h1>Doctor Management</h1>
+		
 		<div class="form-group">
 		<form id="DoctorForm" name="DoctorForm" method="post"  action="DoctorAdmin.jsp">
+		
  						<input id ="id" name="id" type="text" class="form-control form-control-sm" disabled ><br>
+ 						
  		Name: 			<input id ="name" name="name" type="text" class="form-control form-control-sm" ><br>
+ 		
  		Tel: 			<input id = "Tel"  name="Tel" type="text" class="form-control form-control-sm"><br>
+ 		
 		Specialization:	<input id="Specialization" name="Specialization" type="text" class="form-control form-control-sm"><br>
+		
 		Hospital: 		<input id = "Hospital" name="Hospital" type="text" class="form-control form-control-sm"><br>
+		
 		Email: 			<input id = "Email" name="Email" type="text" class="form-control form-control-sm"><br> 
+		
 		password: 		<input id="password" name="password" type="text" class="form-control form-control-sm"><br>  
+		
 						<input id="btnSave" name="btnSave" type="button" value="Save"class="btn btn-primary">
+						
 						 <input type="hidden" id="hidDoctorIDSave" name="hidDoctorIDSave" value="">
 </form>
 

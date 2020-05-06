@@ -95,7 +95,7 @@
                 <div class="col-lg-4" data-aos="fade-down">
                     <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" data-bs-hover-animate="pulse" src="assets/img/8851188.jpg?h=443ba1ea4464e259fda7bf7152df2868">
                         <h5>Chamod</h5>
-                        <p class="font-weight-light mb-0">Developer</p>
+                        <p class="font-weight-light mb-0">Leader</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-left">
@@ -144,15 +144,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 my-auto h-100 text-center text-lg-left">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
+                  
                     <p class="text-muted small mb-4 mb-lg-0">© HelthCare Online Hospital Management System- 2020. All Rights Reserved.</p>
                 </div>
                 <div class="col-lg-6 my-auto h-100 text-center text-lg-right">
