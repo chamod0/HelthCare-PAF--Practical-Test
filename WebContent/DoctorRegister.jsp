@@ -44,7 +44,7 @@
 				
 				Email: 			<input id="Email" name="Email" type="text" class="form-control form-control-sm"><br> 
 				
-				password:   	<input id="password" name="password" type="text" class="form-control form-control-sm"><br> 
+				password:   	<input id="password" name="password" type="password" class="form-control form-control-sm"><br> 
 					
 								<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary"> 
 							

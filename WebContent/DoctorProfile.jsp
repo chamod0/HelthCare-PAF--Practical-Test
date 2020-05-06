@@ -8,11 +8,12 @@
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <script src="assets/js/script.min.js"></script>
 <script src="Componets/jquery-3.5.0.min.js"></script>
-<script src="Componets/doctor.js"></script>
+
 <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
 
+<script src="Componets/doctor.js"></script>
 <title>Doctor Profile</title>
 </head>
 <body>
@@ -44,7 +45,16 @@ if(session.getAttribute("DoUsername")== null){
  <form id="DoctorForm" name="DoctorForm" method="post" action="DoctorRegister.jsp">
  <h5>${details}</h5>
  
+
+ 
  </form>
+ 
+ <div id="alertSuccess" class="alert alert-success">
+
+ 
+ </div>
+<div id="alertError" class="alert alert-danger">
+</div>
  </div>
  </div>
  </div>

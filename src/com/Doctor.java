@@ -196,16 +196,19 @@ public class Doctor {
 				String DoHospital = rs.getString("Hospital");
 				String DoEmail = rs.getString("Email");
 				String Docpassword = rs.getString("password");
-
-				output += "<input id='id' name='id' type='text' class='form-control form-control-sm' value ='"+ DoId +"'><br>";
-				output += "<input id='name' name='name' type='text' class='form-control form-control-sm' value ='"+ DoName +"'><br>";
-				output += "<input id='Tel' name='Tel' type='text' class='form-control form-control-sm' value ='"+ DoTel +"'><br>";
-				output += "<input id='Specialization' name='Specialization' type='text' class='form-control form-control-sm' value ='"+ DoSpecialization +"'><br>";
-				output += "<input id='DoHospital' name='DoHospital' type='text' class='form-control form-control-sm' value ='"+ DoHospital +"'><br>";
-				output += "<input id='Email' name='Email' type='text' class='form-control form-control-sm' value ='"+ DoEmail +"'><br>";
-				output += "<input id='Docpassword' name='Docpassword' type='text' class='form-control form-control-sm' value ='"+ Docpassword +"'><br>";
-
 				
+				output +=  "id : <input id='hidDoIDUpdate' name='hidDoIDUpdate'type='hidden' value='" + DoId+ "'> <br>";
+
+				//output += " id :<input id='id' name='id' type='text' class='form-control form-control-sm' value ='"+ DoId +"'><br>";
+				output += " name : <input id='name' name='name' type='text' class='form-control form-control-sm' value ='"+ DoName +"'><br>";
+				output += "Tel : <input id='Tel' name='Tel' type='text' class='form-control form-control-sm' value ='"+ DoTel +"'><br>";
+				output += "Specialization : <input id='Specialization' name='Specialization' type='text' class='form-control form-control-sm' value ='"+ DoSpecialization +"'><br>";
+				output += "Hospital : <input id='Hospital' name='Hospital' type='text' class='form-control form-control-sm' value ='"+ DoHospital +"'><br>";
+				output += "Email : <input id='Email' name='Email' type='text' class='form-control form-control-sm' value ='"+ DoEmail +"'><br>";
+				output += "password <input id='password' name='password' type='password' class='form-control form-control-sm' value ='"+ Docpassword +"'><br>";
+
+				output +=  "<input name='btnRemove' type='button'value='Remove'class='btnRemove btn btn-danger' data-doid='"
+						+ DoId + "'>";
 				return output ;
 			}
 			

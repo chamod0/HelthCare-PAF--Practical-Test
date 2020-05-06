@@ -28,7 +28,7 @@
 			<div class="form-group">
 				<button id="submit" class="btn btn-primary" type="submit" value="Login"style="margin: 32px; margin-right: 54px; margin-top: 22px; margin-bottom: -30px; margin-left: 32px;">
 					Login&nbsp;</button>
-					<a href="DoctorRegister.jsp" class="btn btn-primary" style="margin: 32px;margin-right: 39px;margin-top: -14px;margin-bottom: 49px;margin-left: 261px;" >Registor</a>
+					<a href="DoctorRegister.jsp" class="btn btn-primary" style="margin: 32px;margin-right: 39px;margin-top: -14px;margin-bottom: 49px;margin-left: 261px;" >Register</a>
 			</div>
 			<br>
 			

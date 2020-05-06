@@ -56,6 +56,8 @@ public class DoctorAPI extends HttpServlet {
 					request.getParameter("password"));
 
 			response.getWriter().write(output);
+			
+			//doctor login checker
 
 		} else if (request.getParameter("DoUsername") != null) {
 			
@@ -80,7 +82,7 @@ public class DoctorAPI extends HttpServlet {
 			
 				
 		} else {
-//admin login
+//admin login checker
 
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
